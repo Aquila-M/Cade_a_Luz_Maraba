@@ -332,3 +332,12 @@ footer {
   color: #3cdd6d;
   border: 3px solid #3cdd6d;
 }
+
+#lista-denuncias li {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#lista-denuncias li:hover {
+  background-color: #e2ffe2;
+}

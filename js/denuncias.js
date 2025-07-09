@@ -113,3 +113,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderizarDenuncias(getTodasDenuncias());
 });
+
+// listas
+
+const form = document.getElementById('form-denuncia');
+const modal = document.getElementById('alert-dialog');
+const entendiBtn = document.getElementById('entendi-btn');
+const cancelarBtn = document.getElementById('cancelar-btn');
+const lista = document.getElementById('lista-denuncias');
+
+let novaDenuncia = null;
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    modal.style.display = 'block';
+});
+
+entendiBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+
+    const id = Date.now().toString();
+
+    novaDenuncia = {
+        id,
+        logradouro: document.getElementById('denuncia-logradouro').value,
+        bairro: document.getElementById('denuncia-bairro').value,
+        cep: document.getElementById('denuncia-cep').value,
+        referencia: document.getElementById('denuncia-referencia').value,
+        descricao: document.getElementById('denuncia-descricao').value,
+        moradores: document.getElementById('denuncia-moradores').value,
+        necessidadeEspecial: document.getElementById('denuncia-necessidade-especial').value,
+        textoNecessidade: document.getElementById('descricao-necessidade-texto').value,
+    };
+
+    const denuncias = JSON.parse(localStorage.getItem('todasDenuncias')) || [];
+    denuncias.push(novaDenuncia);
+    localStorage.setItem('todasDenuncias', JSON.stringify(denuncias));
+
+
+    window.location.href = `detalheDenuncia.html?id=${id}`;
+});
+
+cancelarBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+});
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const denuncias = JSON.parse(localStorage.getItem('todasDenuncias')) || [];
+    denuncias.forEach(denuncia => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${denuncia.bairro}</strong> - ${denuncia.descricao}`;
+        li.addEventListener('click', () => {
+          window.location.href = `detalheDenuncia.html?id=${denuncia.id}`;
+        });
+        lista.appendChild(li);
+    });
+});
