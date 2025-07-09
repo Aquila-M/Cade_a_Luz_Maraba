@@ -13,86 +13,81 @@
                 <img src="assets/Subtract.png" alt="Ícone de lupa com raio">
                 <h1>Cadê a Luz, Marabá?</h1>
             </div>
+            <div class="right-area">
             <nav>
-                <a href="#">Home</a>
-                <a href="#">Sobre</a>
-                <a href="#">Contatos</a>
-                <a href="#">Ajuda</a>
-                <a href="#">Faça seu login</a>
+                <a href="home.html">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contatos">Contatos</a>
+                <a href="#ajuda">Ajuda</a>
             </nav>
+             <a href="login.html" class="btn-cta-header" id="cta-principal">Faça seu login</a>
+            </div>
         </div>
     </header>
-    
+
     <div class="main-container">
         <main>
             <section class="lista-lugares">
                 <h2>Lista dos lugares</h2>
-                <div class="lista-container">
-                    <div class="lista-cabecalho">
-                        <span>Bairro</span>
-                        <span>Motivo</span>
-                        <span>Data</span>
-                    </div>
-                    <ul id="lista-lugares">
-                        <li>
-                            <span>Bairro laranjeiras</span>
-                            <span>Queda brusca de energia</span>
-                            <span>05/07/25</span>
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </li>
-                        <li>
-                            <span>Cidade Nova</span>
-                            <span>Poste pegando fogo</span>
-                            <span>02/07/25</span>
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </li>
-                        <li>
-                            <span>Nova Marabá</span>
-                            <span>Furtos de fios</span>
-                            <span>01/07/25</span>
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </li>
-                        <li>
-                            <span>Liberdade</span>
-                            <span>Acidente de trânsito e poste caiu</span>
-                            <span>01/07/25</span>
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </li>
-                        <li>
-                            <span>Bairro da Paz</span>
-                            <span>Acidente com pipas</span>
-                            <span>01/07/25</span>
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </li>
-                    </ul>
+                <input type="text" id="filtro-bairro" placeholder="Pesquisar por bairro..." class="input-filtro">
+                <div class="lista-header">
+                    <span>Bairro</span>
+                    <span>Descrição</span>
+                    <span>Data da denúncia</span>
                 </div>
-            </section>
-            
+                 <ul id="lista-denuncias">
+                    
+                 </ul>
+                </section>
+
             <section class="form-denuncia">
                 <h2>Descrição da denúncia</h2>
                 <form id="form-denuncia">
                     <label>Endereço da Ocorrência:</label>
                     <div class="form-grid-double">
-                        <input type="text" id="logradouro" placeholder="Logradouro" required>
-                        <input type="text" id="bairro" placeholder="Bairro" required>
-                        <input type="text" id="cep" placeholder="CEP">
-                        <input type="text" id="referencia" placeholder="Ponto de referência">
+                        <input type="text" id="denuncia-logradouro" placeholder="Logradouro">
+                        <input type="text" id="denuncia-bairro" placeholder="Bairro">
+                        <input type="text" id="denuncia-cep" placeholder="CEP">
+                        <input type="text" id="denuncia-referencia" placeholder="Ponto de referência">
                     </div>
+                    <label for="denuncia-descricao">Descreva o que aconteceu:</label>
+                    <textarea id="denuncia-descricao"></textarea>
+                    <label>Anexar uma foto ou vídeo (PNG ou JPG):</label>
+                    <div class="upload-area">
+                         <input type="file" id="denuncia-arquivo" accept="image/png, image/jpeg" style="display: none;">
+                         <label for="denuncia-arquivo" class="btn-upload">Escolher arquivo</label>
+                         <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+                        </div>
+                        
+                        <div class="form-grid-double">
+                            <div>
+                                <label>Quantas pessoas moram no local afetado?</label>
+                                <select id="denuncia-moradores" class="input-select">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6+">6 ou mais</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Há alguém com necessidade especial?</label>
+                                <select id="denuncia-necessidade-especial" class="input-select">
+                                    <option value="nao">Não</option>
+                                    <option value="sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div id="container-descricao-necessidade" style="display: none;">
+                            <label for="descricao-necessidade-texto">Por favor, descreva a necessidade especial:</label>
+                            <textarea id="descricao-necessidade-texto"></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">ENVIAR DENÚNCIA</button>
                     
-                    <label for="descricao">Descreva o que aconteceu:</label>
-                    <div class="textarea-container">
-                        <textarea id="descricao" required></textarea>
-                        <button type="button" class="btn-add-foto">Adicionar Foto/Vídeo</button>
-                    </div>
-                    
-                    <label>Quantas pessoas moram no local afetado?</label>
-                    <input type="number" id="pessoas" min="0">
-                    
-                    <label>Há alguém com necessidade de atenção especial?</label>
-                    <input type="text" id="atencao-especial">
-                    
-                    <button type="submit" class="btn-enviar">ENVIAR DENÚNCIA</button>
-                </form>
+                    </form>
             </section>
         </main>
         
@@ -100,7 +95,25 @@
             <p>Copyright© 2025 ACGM - Todos os direitos reservados</p>
         </footer>
     </div>
+    <script src="js/denuncias.js"></script>
+    <script src="js/autenticacao.js"></script>
 
-    <script src="scripts/denuncias.js"></script>
+    <div id="alert-dialog" class="modal">
+        <div class="modal-content">
+            <p><strong>Aviso de Responsabilidade</strong></p>
+            <p>Este site tem como objetivo promover transparência e cidadania ao registrar e divulgar relatos sobre interrupções no fornecimento de energia elétrica em nossos bairros.
+Para garantir a integridade das informações e o impacto positivo desse projeto, pedimos que:</p>
+            <ul>
+                <li>As denúncias se limitem exclusivamente a casos reais de falta de energia.</li>
+                <li>Os vídeos enviados estejam relacionados diretamente à ocorrência (ex: ruas sem iluminação, moradores comentando a situação, equipamentos desligados);</li>
+                <li>Evite o envio de conteúdos falsos, imprecisos ou fora do contexto. O uso incorreto da plataforma compromete sua credibilidade e pode prejudicar ações que beneficiam a coletividade.</li>
+            </ul>
+            <p>Cada denúncia verdadeira conta. Vamos juntos construir um canal confiável e eficaz para cobrar melhorias e garantir nossos direitos.<br><br>Contamos com você.</p>
+            <div class="botoes-modal">
+                <button id="entendi-btn" class="btn-confirmar">Eu entendo</button>
+                <button id="cancelar-btn" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

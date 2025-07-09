@@ -7,41 +7,38 @@
   <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-  <header id="header">
-    <div class="container">
-      <div class="logo-main">
-        <img src="assets/Subtract.png" alt="icone-logo">
-        <h1 id="site-title">Cadê a luz, Marabá?</h1>
+  <header>
+    <div class="header-content">
+      <div class="logo-area">
+        <img src="assets/Subtract.png" alt="Ícone de lupa com raio">
+        <h1>Cadê a luz, Marabá?</h1>
       </div>
-      <div class="nav-tabel">
-        <nav id="main-nav">
-          <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contatos">Contatos</a></li>
-            <li><a href="#ajuda">Ajuda</a></li>
-          </ul>
+      <div class="right-area">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#ajuda">Ajuda</a>
         </nav>
-        <button id="login-button">
-          <a href="register.html">Faça seu registro ➜</a></button>
+        <a href="register.html" class="btn-cta-header" id="cta-principal">Faça seu cadastro</a>
       </div>
     </div>
-  </header>
+</header>
+    
+<main id="main-content">
+  <section class="login-section flex-section">
+    <div class="left-illustration">
+      <img src="assets/rafiki.png" alt="Ilustração de login" />
+    </div>
+    <div class="right-login-box">
+      <h2>Faça seu login</h2>
+      <p>Após o login, você terá acesso ao seu histórico de denúncias e poderá realizar novas denúncias, se necessário.</p>
 
-  <main id="main-content">
-    <section class="login-section flex-section">
-      <div class="left-illustration">
-        <img src="assets/rafiki.png" alt="Ilustração de login" />
-      </div>
-
-      <div class="right-login-box">
-        <h2>Faça seu login</h2>
-        <p>Após o login, você terá acesso ao seu histórico de denúncias e poderá realizar novas denúncias, se necessário.</p>
-
-        <form id="login-form" action="register.html">
+        <form id="login-form" action="denunciacomLista.html">
           <h3>Login</h3>
 
-          <input type="email" id="email" name="email" placeholder="E-mail" class="input-field" required />
-          <input type="password" id="senha" name="senha" placeholder="Senha" class="input-field" required />
+          <input type="email" name="email" placeholder="E-mail" class="input-field" required />
+          <input type="password" name="senha" placeholder="Senha" class="input-field" required />
 
           <div class="google-login">
             <button type="button" id="google-login-btn">
@@ -50,14 +47,17 @@
             </button>
           </div>
 
-          <button type="submit" id="login-submit">Entrar</button>
+          <button type="submit" id="login-submit">
+            <a href="denunciacomLista.html">Entrar</a></button>
         </form>
       </div>
     </section>
   </main>
-  <script src="scripts/login.js"></script>
+
   <footer id="footer">
     <p>&copy; 2025 ACCAM Todos os direitos reservados</p>
   </footer>
+    <script src="js/login.js"></script>
+    <script src="js/autenticacao.js"></script>
 </body>
 </html>

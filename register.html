@@ -7,25 +7,23 @@
   <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-  <header id="header">
-    <div class="container">
-      <div class="logo-main">
-        <img src="assets/Subtract.png" alt="logo-icone">
-        <h1 id="site-title">Cadê a luz, Marabá?</h1>
+  <header>
+    <div class="header-content">
+      <div class="logo-area">
+        <img src="assets/Subtract.png" alt="Ícone de lupa com raio">
+        <h1>Cadê a luz, Marabá?</h1>
       </div>
-      <div class="nav-tabel">
-        <nav id="main-nav">
-          <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contatos">Contatos</a></li>
-            <li><a href="#ajuda">Ajuda</a></li>
-          </ul>
+      <div class="right-area">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#ajuda">Ajuda</a>
         </nav>
-        <a href="login.html" id="login-button">Faça seu login ➜</a>
+        <a href="login.html" class="btn-cta-header">Faça seu login</a>
       </div>
-
     </div>
-  </header>
+</header>
 
   <main id="main-content">
     <section id="intro-section" class="flex-section">
@@ -67,7 +65,7 @@
             </button>
           </div>
 
-          <p class="login-link">Já tem uma conta? <a href="login.html">Faça Login</a> aqui.</p>
+          <p class="login-link">Já tem uma conta? <a href="#login">Faça Login</a> aqui.</p>
 
           <button type="submit" id="submit-button">Cadastrar</button>
         </form>
@@ -78,5 +76,7 @@
   <footer id="footer">
     <p>&copy; 2025 ACCAM Todos os direitos reservados</p>
   </footer>
+    <script src="js/register.js"></script>
+    <script src="js/autenticacao.js"></script>
 </body>
 </html>

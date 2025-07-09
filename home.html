@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadê a Luz, Marabá? - Home</title>
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="assets/Subtract.png" alt="Ícone de lupa com raio">
+                <h1>Cadê a Luz, Marabá?</h1>
+            </div>
+            <div class="right-area">
+                <nav>
+                    <a href="#" class="active">Home</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Contatos</a>
+                    <a href="#">Ajuda</a>
+                </nav>
+                <a href="login.html" class="btn-cta-hero" id="cta-principal">Faça seu login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Faltou energia? <br>Denuncie agora e ajude a resolver mais rápido!</h1>
+                    <p>Contribua para uma cidade mais segura e iluminada. Registre aqui a falta de energia.</p>
+                    <a href="denunciacomLista.html" class="btn-cta-hero" id="btnDenuncia">Registre sua denúncia</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-container">
+            <section class="map-section">
+                <h2>Descubra onde pode está sem energia</h2>
+                <div class="map-image">
+                    <img src="assets/mapa.png" alt="Mapa de Marabá mostrando áreas sem energia">
+                </div>
+            </section>
+        </div>
+
+        <section class="stats-section">
+            <div class="stats-content">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <img src="assets/Icon.png" alt="Ícone de usuários cadastrados">
+                    </div>
+                    <div class="stat-text">
+                        <span class="stat-number">40.532</span>
+                        <span class="stat-description">Usuários cadastrados</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <img src="assets/resolvido.png" alt="Ícone de casos resolvidos">
+                    </div>
+                    <div class="stat-text">
+                        <span class="stat-number">591</span>
+                        <span class="stat-description">Casos resolvidos nos últimos 30 dias</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <img src="assets/denuncias.png" alt="Ícone de denúncias registradas">
+                    </div>
+                    <div class="stat-text">
+                        <span class="stat-number">698</span>
+                        <span class="stat-description">Denúncia registradas nos últimos 30 dias</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <img src="assets/alerta.png" alt="Ícone de casos pendentes">
+                    </div>
+                    <div class="stat-text">
+                        <span class="stat-number">107</span>
+                        <span class="stat-description">Casos pendentes nos últimos 30 dias</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <a href="#" class="btn-how">Entenda como funciona</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright© 2025 ACGM - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+            const botaoDenuncia = document.getElementById('btnDenuncia');
+
+            if (usuarioLogado) {
+                botaoDenuncia.href = 'denunciacomLista.html';
+            } else {
+                botaoDenuncia.style.backgroundColor = '#888';
+                botaoDenuncia.style.cursor = 'not-allowed';
+
+                botaoDenuncia.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    alert('Você precisa fazer login para registrar uma denúncia.');
+                });
+            }
+        });
+    </script>
+    <script src="js/autenticacao.js"></script>
+
+</body>
+</html>
